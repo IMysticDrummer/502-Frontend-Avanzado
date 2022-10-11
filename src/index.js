@@ -1,4 +1,7 @@
 //DONE: #1 implementar api (getGames(), getGameById()). Mirar en la documentación de json-server
+// TODO: #7 Separar api de index.js
+// TODO: #8 Separar funciones auxiliares `(generate*)` de renders en index.js
+// TODO: #9 Separar funciones de index y de detail
 
 const apiEndpoint = 'http://localhost:3033'
 
@@ -33,7 +36,7 @@ async function drawGame(gameId) {
   let game = await getGameById(gameId);
   document.getElementById('game-name-title').innerHTML = game.name;
   // DONE: #5 breadcrumb???? Let's use jQuery!!
-  $('.breadcrumb span').html(`Game ${game.name}`);
+  $('.breadcrumb span').html(`Game ${game.name}`)
   document.getElementById('game-image').src = game.image;
   document.getElementById('game-image').alt = game.name;
 
