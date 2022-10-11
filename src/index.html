@@ -3,8 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <title>Gaming directory</title>
-        <script src="./index.js"></script>
-        <script>
+
+        <script type="module">
+            import {drawListGames} from "./index.js";
             (async () => {
                 await drawListGames();
             })();

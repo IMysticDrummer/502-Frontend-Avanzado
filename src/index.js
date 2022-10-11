@@ -1,26 +1,13 @@
 //DONE: #1 implementar api (getGames(), getGameById()). Mirar en la documentación de json-server
-// TODO: #7 Separar api de index.js
+// DONE: #7 Separar api de index.js
+import {getGames, getGameById, getCommentsOfGame} from "./api-handler.js";
 // TODO: #8 Separar funciones auxiliares `(generate*)` de renders en index.js
 // TODO: #9 Separar funciones de index y de detail
 
-const apiEndpoint = 'http://localhost:3033'
 
-const getGames = async () => {
-  const response = await fetch(`${apiEndpoint}/games`)
-  return response.json()
-}
 
-const getGameById = async (gameId) => {
-  const response = await fetch(`${apiEndpoint}/games/${gameId}`)
-  return response.json()
-}
 
-const getCommentsOfGame = async (gameId) => {
-  const response = await fetch(`${apiEndpoint}/games/${gameId}/comments?_expand=user`)
-  return response.json()
-}
-
-async function drawListGames() {
+export async function drawListGames() {
   let games = await getGames();
   const newDiv = document.createElement('div');
   newDiv.setAttribute('id', 'games-list')
@@ -38,7 +25,7 @@ async function drawListGames() {
   }
 }
 
-async function drawGame(gameId) {
+export async function drawGame(gameId) {
   let game = await getGameById(gameId);
   document.getElementById('game-name-title').innerHTML = game.name;
   // DONE: #5 breadcrumb???? Let's use jQuery!!
@@ -57,7 +44,7 @@ async function drawGame(gameId) {
 }
 
 // DONE: #2 Pedir ayuda para generateCommentSnippet
-async function drawComments(gameId) {
+export async function drawComments(gameId) {
   console.log(gameId)
   let comments = await getCommentsOfGame(gameId);
   document.getElementById('comments')
