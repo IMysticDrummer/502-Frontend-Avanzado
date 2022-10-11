@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buid": "npx webpack"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
     "json-server": "^0.17.0",
     "sass": "^1.55.0",
     "servor": "^4.0.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
