@@ -1,0 +1,19 @@
+.game-snippet {
+  max-width: 220px;
+}
+.game-snippet .game-image-container,
+.game-snippet .game-name {
+  text-align: center;
+}
+.game-snippet .game-name {
+  max-width: 220px;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #1d2fa5;
+}
+.game-snippet .game-name:hover {
+  color: #1d2fed;
+}
+
+/*# sourceMappingURL=styles.css.map */
