@@ -50,5 +50,51 @@ Si queremos que webpack coja las dependencias correctas, hay que poner el punto 
   lo llamamos con ```webpack serve --mode development```.  
   Esto generará "on the fly", en la carpeta "public" los archivos de funcionamiento de la web.
 
+  ### Loaders
+  Son manejadores que nos permiten realizar preprocesados directamente desde webpack.  
+  Por ejemplo, las transformaciones de archivos sass-scss, o typescript... etc.  
+
+  https://webpack.js.org/concepts/loaders/
+
+  https://webpack.js.org/awesome-webpack/
+
+  Webpack no provee los loaders, que debemos instalar con npm.  
+  Ejemplo de instalación de loaders para transformar sass-scss:  
+  ```
+    npm i -D style-loader css-loader sass-loader
+  ```
+  La configuración, añadida en el webpack.config.js es:
+  ``` javascript
+    module: {
+        rules: [
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]    
+            }
+        ]
+    }
+  ```
+
+### Babel
+Babel transpila los archivos javascript a archivos javascript de versiones antiguas de ECMA para asegurar la compatibiliad en navegadores antiguos o no actualizados.
+
+```npm install --save-dev @babel/core @babel/cli```
+
+```npm install @babel/preset-env --save-dev```
+
+#### Configuración de babel.
+Se hace con presets.
+Se crea un archivo babel.config.json, y se introduce el siguiente código:
+```json
+  {
+    "presets": ["@babel/preset-env"]
+  }
+```
+
+
 ### Algunas notas importantes
 - Nunca se mete el ```dist``` en los repositorios.
