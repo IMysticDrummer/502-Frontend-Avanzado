@@ -6,7 +6,9 @@ import { generateCommentSnippet } from "./functions.js";
 // TODO: #9 Separar funciones de index y de detail
 
 
-
+import './styles.scss';
+import $ from 'jquery';
+import 'bootstrap';
 
 export async function drawGame(gameId) {
   let game = await getGameById(gameId);

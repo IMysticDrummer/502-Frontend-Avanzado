@@ -5,7 +5,9 @@ import {getGames} from "./api-handler.js";
 import { generateGameSnippet } from "./functions.js";
 // TODO: #9 Separar funciones de index y de detail
 
-
+import './styles.scss';
+import $ from 'jquery';
+import 'bootstrap/scss/bootstrap.scss';
 
 
 export async function drawListGames() {

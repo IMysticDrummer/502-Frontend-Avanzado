@@ -1,0 +1,28 @@
+@use 'variables';
+@use 'sass:color';
+
+.game-snippet {
+    .game-image-container, .game-name {
+        text-align: center;
+    }
+    max-width: variables.$maxWidthSnippet;
+    .game-name {
+        max-width: variables.$maxWidthSnippet;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: variables.$snippetTextColor;
+        &:hover{
+            color: color.scale(variables.$snippetTextColor, $red: 80%)
+        }
+    }
+    &:hover {
+        a {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .game-image-container{
+            transform: scale(1.1);
+        }
+    }
+}

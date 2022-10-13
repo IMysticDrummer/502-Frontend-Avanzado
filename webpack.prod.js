@@ -1,3 +1,6 @@
+const {merge}=requre(webpack-merge);
+
+
 const HtmWebpackPlugin=require('html-webpack-plugin');
 const MiniCssExtractPlugin=require('mini-css-extract-plugin');
 

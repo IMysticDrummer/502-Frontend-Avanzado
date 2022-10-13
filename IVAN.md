@@ -94,7 +94,16 @@ Se crea un archivo babel.config.json, y se introduce el siguiente código:
     "presets": ["@babel/preset-env"]
   }
 ```
+## Plugins
+Configuraciones que nos generan en la distribución los archivos necesarios separados.
+Importantes el html-webpack-plugin:
+```npm i --save-dev html-webpack-plugin```
 
+y el min-css-extract-plugin, que extrae los css de los archivos js generados por webpack.
+```npm i --save-dev mini-css-extract-plugin```
+
+## Webpack merge
+Permite separar en diferentes archivos la configuración común, la específica de desarrollo y la específica de producción.
 
 ### Algunas notas importantes
 - Nunca se mete el ```dist``` en los repositorios.
