@@ -6,15 +6,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 
-        <script type="module">
-            import {drawComments, drawGame} from "./index.js";
-            // https://developer.mozilla.org/es/docs/Web/API/URLSearchParams
-            const gameId = parseInt(new URLSearchParams(window.location.search).get("id"));
-            (async () => {
-                await drawGame(gameId);
-                await drawComments(gameId);
-            })();
-        </script>
+        <script src="./detail.js"></script>
         <!-- DONE: #3 dar un poco de estética, usamos Bootstrap? -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"

@@ -28,7 +28,27 @@ Si queremos que webpack coja las dependencias correctas, hay que poner el punto 
       }
     }
   ```
-  
+  ### Webpack serve
+  Servidor de webpack que nos permite servir a través de webpack sin necesidad de crear la carpeta ```dist```.  
+  Es necesario instalar el webpack-dev-server:  
+  ```npm i -D webpack-dev-server```  
+  y configuramos el server en el webpack.config.js:
+  ``` javascript
+  module.exports={
+    entry: {
+      main: './src/index.js',
+      detail: './src/detail.js'
+    },
+
+    devServer:{
+      client: {
+        overlay: true
+      }
+    }
+  }
+  ```
+  lo llamamos con ```webpack serve --mode development```.  
+  Esto generará "on the fly", en la carpeta "public" los archivos de funcionamiento de la web.
 
 ### Algunas notas importantes
 - Nunca se mete el ```dist``` en los repositorios.
