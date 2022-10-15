@@ -9,6 +9,7 @@ const plugins=[
     title: 'Gaming directory!!!',
     template: './public/index.html',
     filename: 'index.html',
+    //chunks indica las dependencias de este archivo html
     chunks: ['main']
   }),
   new HtmWebpackPlugin({
