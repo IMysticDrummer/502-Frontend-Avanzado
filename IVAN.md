@@ -107,3 +107,79 @@ Permite separar en diferentes archivos la configuración común, la específica 
 
 ### Algunas notas importantes
 - Nunca se mete el ```dist``` en los repositorios.
+
+
+
+# Pasos seguidos durante la clase final
+1. Instalar webpack  
+  a. Pasar los archivos HTML a public  
+  b. Configurar webpack para que lea los archivos .js  
+2. Instalar el webpack-dev-serve, para poder servir directamente desde ram  
+3. Instalar los loaders  
+    - instalar las dependencias necesarias para que webpack reconozca y traduzca sass/scss, en modo desarrollo  
+        - esto causará que en los archivos distribuidos, se inyecte el css directamente en el dom.  
+    - instalar las dependencias de babel, y configurarlas, para que sólo transpile los archivos js fuera de nodemodules  
+    - instalar jquery, para poder importarlo y utilizarlo en nuestros js.  
+    - instalar e importar bootstrap, para que funcione directamente desde nuestros js.  
+    **Nota:** es importante entender que todo esto hay que importarlo en los js que utilicemos, para que webpack lea las dependencias.  
+    **Nota 2:** cuando instalamos bootstrap, lo que hemos importado es el archivo bootstrap.scss (soportado porque anteriormente hemos
+  instalado las dependencias que leen sass/scss). Comprobar en node_modules la dirección de dicho archivo, para que funcione en condiciones.  
+4. Instalar los plugins para dejar el código límpio y separado en nuestra distribución.  
+    - instalar HtmlWebpackPlugin, para que nos copie los archivos html a nuestro directorio de distribución.  
+        - Cuando instalamos HtmlWebpackPlugin, en la configuración, usando la clave *chunk*, le decimos las dependencias .js que tiene
+        dicho archivo html... por lo que no nos hace falta la llamada al script en el html. **Webpack se encargará de meter en el archivo 
+        del directorio de distribución, las dependencias de dicho archivo.**  
+    - instalar *MiniCssExtractPlugin*
+        - En el archivo de configuración, en la parte de configuración para traducir sass/scss, hay que poner una instancia de este
+        plugin en lugar del *style-loader* que habríamos configurado en la parte anterior de loaders.  
+        - En la configuración del plugin de *minicssextractplugin*, se puede colocar la clave *chunkFilename* con la siguiente 
+        configuración:  
+            `chunkFilename: [id].[contenhash].css`  
+          Esto causará que el plugin divida el archivo css de salida, que normalmente será bastante grande, en archivos más pequeños que,
+          a su vez, inyectará como dependencias el html correspondiente.  
+          Esto puede ayudar a la velocidad de carga de la página.  
+          **¿dónde está el límite de dividir archivos?**... para eso están las métricas y comprobar qué resulta más eficaz para la carga 
+          de la página.  
+        
+
+
+# Otras notas interesantes
+## Webpack
+1. Cuando configuras los *entry* del archivo de configuración, las claves son los nombres de los archivos .js que webpack generará como salida. Estas claves pueden indicar rutas... por lo que podemos organizar sin problemas nuestros archivos en distribución. Por ejemplo:  
+```javascript
+entry: {
+  'js/main': './src/index.js',
+  'js/detail': './src/detail.js'
+}
+```
+2. La clave output en la configuración de webpack.
+    - Para aseguar que cualquier cambio en nuestra distribución (dist) será cargado por los navegadores, evitando el cacheo, se suele
+    configurar la salida de archivos para que en su nombre contenga un hash. Como cambiará el nombre del archivo, esto asegurará que
+    cualquier cambio, cambiará el nombre, y por tanto los navegadores cargarán la página de servidor, en vez de utilizar la que tienen
+    cacheada.  
+    Para ello en el archivo de configuración, clave output, la configuraremos:  
+    ```javascript
+    output:{
+      filename: '[name].[contenthash].js',
+      clean: true
+    }
+    ```
+    La clave *clean* dentro del cacheado, realizará una limpieza del directorio dist cada vez que hagamos una construcción webpack, para
+    evitar tener que hacerlo nosotros a mano.
+    El uso de *[contenthas]* también se puede utilizar en la clave *filename* (nombre del archivo de salida que queremos que se genere), 
+    para obtener el mismo efecto que hemos comentado, y que cualquier cambio que hayamos hecho y pasado por webpack, sea cargado por los
+    navegadores, evitando el cacheo.
+
+
+
+# Plugins interesantes de webpack:
+**Nota:** Estos plugins se suelen instalar en desarrollo.
+**Nota 2:** Los plugins se comportan como objetos, por lo que en el archivo de configuración de webpack, hay que importarlos como tales
+para luego utilizarlos.
+
+1- CopyWebpackPlugin
+  - copia los archivos o directorios al directorio de construcción 
+2- HtmlWebpackPlugin
+  - Permitirá copiar los archivos html al directorio de distribución
+3- MiniCssExtracPlugin
+  - crea un archivo CSS por cada JS que necesite CSS.

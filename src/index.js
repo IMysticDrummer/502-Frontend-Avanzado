@@ -3,9 +3,9 @@
 import {getGames} from "./api-handler.js";
 // DONE: #8 Separar funciones auxiliares `(generate*)` de renders en index.js
 import { generateGameSnippet } from "./functions.js";
-// TODO: #9 Separar funciones de index y de detail
+// DONE: #9 Separar funciones de index y de detail
 
-import './styles.scss';
+import './styles/styles.scss';
 
 // <!-- DONE: #3 dar un poco de estética, usamos Bootstrap? -->
 // <!-- DONE: #6 añadir nuestro estilo -->
