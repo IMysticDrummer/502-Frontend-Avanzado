@@ -138,6 +138,15 @@ Permite separar en diferentes archivos la configuración común, la específica 
           Esto causará que el plugin divida el archivo css de salida, que normalmente será bastante grande, en archivos más pequeños que,
           a su vez, inyectará como dependencias el html correspondiente.  
           Esto puede ayudar a la velocidad de carga de la página.  
+          Para que esto termine de funcionar, hay que crear una clave nueva en el module.exports del archivo de configuración de 
+          webpack, con el siguiente código:  
+          ```javascript
+            optimization: {
+              splitChunks:{
+              chunks: 'all'
+              }
+            }
+          ```
           **¿dónde está el límite de dividir archivos?**... para eso están las métricas y comprobar qué resulta más eficaz para la carga 
           de la página.  
         
@@ -151,7 +160,10 @@ entry: {
   'js/main': './src/index.js',
   'js/detail': './src/detail.js'
 }
-```
+```  
+  - También puedes configurar el directorio por defecto para los entry points utilizando antes la clave *content*. Por ejemplo: 
+    `context: __dirname+'/src'`
+
 2. La clave output en la configuración de webpack.
     - Para aseguar que cualquier cambio en nuestra distribución (dist) será cargado por los navegadores, evitando el cacheo, se suele
     configurar la salida de archivos para que en su nombre contenga un hash. Como cambiará el nombre del archivo, esto asegurará que
