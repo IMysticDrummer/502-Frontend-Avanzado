@@ -1,8 +1,8 @@
 //DONE: #1 implementar api (getGames(), getGameById()). Mirar en la documentación de json-server
 // DONE: #7 Separar api de index.js
-import {getGames} from "./api-handler.js";
+import {getGames} from "./utils/api-handler.js";
 // DONE: #8 Separar funciones auxiliares `(generate*)` de renders en index.js
-import { generateGameSnippet } from "./functions.js";
+import { generateGameSnippet } from "./utils/functions.js";
 // DONE: #9 Separar funciones de index y de detail
 
 import './styles/styles.scss';
