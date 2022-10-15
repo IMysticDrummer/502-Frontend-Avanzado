@@ -8,7 +8,10 @@ import { generateCommentSnippet } from "./functions.js";
 
 import './styles.scss';
 import $ from 'jquery';
-import 'bootstrap';
+/* <!-- DONE: #3 dar un poco de estética, usamos Bootstrap? -->
+        <!-- DONE: #6 añadir nuestro estilo --> */
+// import bootstrap from 'bootstrap';
+import 'bootstrap/scss/bootstrap.scss';
 
 export async function drawGame(gameId) {
   let game = await getGameById(gameId);

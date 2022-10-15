@@ -6,7 +6,9 @@ import { generateGameSnippet } from "./functions.js";
 // TODO: #9 Separar funciones de index y de detail
 
 import './styles.scss';
-import $ from 'jquery';
+
+// <!-- DONE: #3 dar un poco de estética, usamos Bootstrap? -->
+// <!-- DONE: #6 añadir nuestro estilo -->
 import 'bootstrap/scss/bootstrap.scss';
 
 

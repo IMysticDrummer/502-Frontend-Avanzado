@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "buid": "webpack",
+    "build-win": "npx webpack",
     "serve": "webpack serve --mode development"
   },
   "repository": {
@@ -20,6 +21,9 @@
   },
   "homepage": "https://github.com/KeepCodingWeb13/frontend-pro#readme",
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2",
+    "jquery": "^3.6.1",
     "json-server": "^0.17.0",
     "sass": "^1.55.0",
     "servor": "^4.0.2"
@@ -28,12 +32,9 @@
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.4",
-    "@popperjs/core": "^2.11.6",
     "babel-loader": "^8.2.5",
-    "bootstrap": "^5.2.2",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
-    "jquery": "^3.6.1",
     "mini-css-extract-plugin": "^2.6.1",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",
