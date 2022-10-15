@@ -149,6 +149,19 @@ Permite separar en diferentes archivos la configuración común, la específica 
           ```
           **¿dónde está el límite de dividir archivos?**... para eso están las métricas y comprobar qué resulta más eficaz para la carga 
           de la página.  
+    - instalar el *webpack-merge*. Este paquete permitirá tener archivos de configuración de webpack separados para la parte desarrollo 
+    y la parte producción.  
+    Cuando tengamos realizada la configuración común y las de
+    desarrollo y producción, hay que cambiar la configuración
+    del package.json, para que los scripts de arranque y 
+    desarrollo se ejecuten correctamente.  
+    El script de arranque pasará de ser:  
+    `"build": "webpack --mode production"` a  
+    `"build": "webpack --config webpack.prod.js`  
+    El script de desarrollo y el server pasa de:  
+    `"serve": "webpack serve --mode development"` a  
+    `"serve": "webpack serve --config webpack.dev.js"`
+
         
 
 

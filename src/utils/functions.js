@@ -4,7 +4,7 @@
 export function generateGameSnippet(game) {
   return `
   <div class="game-snippet">
-    <a href="/detail.html?id=${game.id}">
+    <a href="./detail.html?id=${game.id}">
       <div class="game-image-container">
         <img class="img-thumbnail" id="game-${game.id}" src="${game.image}" alt="${game.name}"/>
       </div>
